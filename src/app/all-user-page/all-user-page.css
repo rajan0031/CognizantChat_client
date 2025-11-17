@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.user-list {
+  width: 30%;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+}
+
+.user-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.user-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.chatroom {
+  flex: 1;
+  padding: 10px;
+}

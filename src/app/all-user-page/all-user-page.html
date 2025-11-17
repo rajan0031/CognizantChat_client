@@ -1,0 +1,38 @@
+<div class="container">
+  <!-- Left side: user list -->
+  <div class="user-list">
+    <h3>All Users</h3>
+    <ul>
+      <li *ngFor="let user of users" (click)="selectUser(user)">
+        {{ getEmailPrefix(user.email) }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Right side: chatroom -->
+  <div class="chatroom">
+    <h3>Chatroom</h3>
+    <div *ngIf="selectedUser; else noUser">
+      <p>Chatting with <strong>{{ selectedUser.name }}</strong></p>
+
+      <ul>
+        <li *ngFor="let msg of messages">
+          {{ msg.textMessage }}
+        </li>
+      </ul>
+
+      <!-- Send message input -->
+      <div class="send-box">
+        <input
+          type="text"
+          [(ngModel)]="newMessage"
+          placeholder="Type a message..."
+        />
+        <button (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+    <ng-template #noUser>
+      <p>Select a user from the left to start chatting.</p>
+    </ng-template>
+  </div>
+</div>
